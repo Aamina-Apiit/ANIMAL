@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="images/logo1.png" type="image/x-icon" />
+    <title>Wild Life</title>
+    <script src="con.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div>
+          <img class="logoimg" src="images/logo1.png" alt="noimage" />
+        </div>
+        <input type="checkbox" id="click" />
+        <label for="click" class="menu-btn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="intro.html">About Us</a></li>
+          <li>
+            <a class="active" href="conservation.html">Wild Life Department</a>
+          </li>
+          <li><a href="leopards.html">Sri Lankan Leopards</a></li>
+          <li class="dropdown">
+            <a href="animals.html" class="dropbtn"
+              >Animals <i class="fas fa-caret-down"></i
+            ></a>
+            <ul class="dropdown-content">
+              <li><a href="yalaNational.html">yala National</a></li>
+              <li><a href="wilpattuNatinal.html">Wilpattu National</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+      <div class="row">
+        <div class="column1">
+          <h1 id="wilpattuNational-title"></h1>
+          <p id="wilpattuNational-description"></p>
+        </div>
+
+        <div class="column1">
+          <img src="images/wildlife1.jpg" width="100%" align="left" />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="cont">
+        <div class="bo">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d507001.0556457187!2d79.3100644890625!3d6.897092700000017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae250aa85489b1f%3A0xd8773339b6b43dbb!2sDepartment%20of%20Wildlife%20Conservation!5e0!3m2!1sen!2slk!4v1705646187747!5m2!1sen!2slk"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+    <br /><br />
+
+    <section class="hi2">
+      <div class="wrapper">
+        <input type="radio" name="slide" id="one" checked />
+        <input type="radio" name="slide" id="two" />
+        <input type="radio" name="slide" id="three" />
+        <input type="radio" name="slide" id="four" />
+        <input type="radio" name="slide" id="five" />
+        <div class="img img-1">
+          <img src="images/diversity.webp" alt="" />
+        </div>
+        <div class="img img-2">
+          <img src="images/giraff.jpg" alt="" />
+        </div>
+        <div class="img img-3">
+          <img src="images/fox.jpg" alt="" />
+        </div>
+        <div class="img img-4">
+          <img src="images/leopard2.jpg" alt="" />
+        </div>
+        <div class="img img-5">
+          <img src="images/wildlife1.jpg" alt="" />
+        </div>
+        <div class="sliders">
+          <label for="one" class="one"></label>
+          <label for="two" class="two"></label>
+          <label for="three" class="three"></label>
+          <label for="four" class="four"></label>
+          <label for="five" class="five"></label>
+        </div>
+      </div>
+    </section>
+    <br /><br />
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer">
+          <div class="footer-heading footer-1">
+            <h3>About Us</h3>
+            <a href="#">Blog</a>
+            <a href="#">Demo</a>
+            <a href="#">Customers</a>
+            <a href="#">Investors</a>
+            <a href="#">Terms of Services</a>
+          </div>
+          <div class="footer-heading footer-2">
+            <h3>Contact Us</h3>
+            <a href="#">Support</a>
+            <a href="#">Contact</a>
+            <a href="#">sponsorship</a>
+          </div>
+          <div class="footer-heading footer-3">
+            <h3>Social Media</h3>
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">Youtube</a>
+            <a href="#">Twitter</a>
+            <a href="#">Terms of Services</a>
+          </div>
+          <div class="footer-email-form">
+            <h3>Join us for more details</h3>
+            <input
+              type="email"
+              placeholder="Enter your email adress"
+              id="footer-email"
+            />
+            <input type="submit" value="Sign up" id="footer-email-btn" />
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

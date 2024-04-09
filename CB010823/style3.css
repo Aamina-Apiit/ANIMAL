@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.about-us {
+  padding: 90px 0;
+  background: #ddd;
+  text-align: center; /* Center text within .about container */
+}
+
+.pic {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px; /* Add margin to separate image from text */
+}
+
+.about {
+  width: 90%;
+  max-width: 1130px;
+  margin: 0 auto;
+}
+
+.text {
+  width: 100%;
+}
+
+.text h2 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.text h5 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+span {
+  color: #4070f4;
+}
+
+.text p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.data {
+  margin-top: 20px;
+}
+
+.hire {
+  font-size: 16px;
+  padding: 8px 20px;
+  text-decoration: none;
+  background: #4070f4;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  transition: 0.5s;
+}
+
+.hire:hover {
+  background: #000;
+  border: 1px solid #4070f4;
+}
+
+/* Media query for tablets and larger screens */
+@media screen and (min-width: 768px) {
+  .about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  .text {
+    width: 50%;
+  }
+
+  .pic {
+    width: 45%;
+  }
+
+  .text h2 {
+    font-size: 60px;
+  }
+}
+
+/*---------------parks page under animals , the three section area */
+.uu{
+  background-color: black;
+}
+
+.ig{
+  width: 80%;
+  height: 45%;
+}
+
+
+/*-----------------------button for naviagtion in parks ----------------*/
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.responsive-button {
+  margin: 5px; /* Add margin between the buttons */
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #ffffff; /* White text color */
+  background-color: #000000; /* Black background color */
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+  /* Smooth transition for hover effect */
+  text-decoration: none;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 600px) {
+  .center {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally when stacked */
+  }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Editor</title>
+    <link rel="stylesheet" href="html_editor.css">
+    
+</head>
+<body>
+    <button class="popup-button" id="show-popup">Edit Content</button>
+    <button class="subs-button" id="subcribers">Subscribers</button>
+  
+    <div class="popup-container" id="popup-container">
+        <div class="popup-box">
+          <div class="input-box">
+            <label class="sele">Select Content to Edit : </label>
+            <select id="select">
+                <option value="WildLife">Wildlife Title</option>
+                <option value="Mammals">Mammals</option>
+                <option value="Birds">Birds</option>
+                <option value="Reptiles">Reptiles</option>
+                <option value="Marine">Marine Life</option>
+                <option value="Explore">Explore Sri Lanka's Wild Wonders</option>
+                <option value="Safaris">Diverse Wildlife Safaris</option>
+                <option value="Leopard">Leopard Spotting</option>
+                <option value="Elephant">Elephant Gatherings</option>
+                <option value="Bird">Bird Watching</option>
+                <option value="Bear">Sloth Bear Encounters</option>
+            </select>
+          </div>
+  
+          <div class="input-box">
+            <input type="text" class="input-field" id="inputText" placeholder="Enter the new text" required>
+          </div>
+            <button class="save-btn" id="save">Update</button>
+  
+            <button class="close-btn" id="close-popup">Exit</button>
+        </div>
+    </div>
+    <script src="html_editor.js" defer></script>
+</body>
+</html>
