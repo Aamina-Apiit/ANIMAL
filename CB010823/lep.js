@@ -6,6 +6,7 @@ var nationalParks = [
     imageUrl: "images/leapords1jpg"
   }
 ];
+
 var hortonplains = [
   {
     name: "Horton Plains National Park",
@@ -21,7 +22,6 @@ var wasgamuwapark = [
   imageUrl: "images/leopard5.webp"
 }
 ];
-
 
 var threats = [
   {
@@ -41,34 +41,28 @@ var threats2 = [
 }
 ];
 
-
 localStorage.setItem('nationalParks', JSON.stringify(nationalParks));
 localStorage.setItem('hortonplains', JSON.stringify(hortonplains));
 localStorage.setItem('wasgamuwapark', JSON.stringify(wasgamuwapark));
 
-
-
 localStorage.setItem('threats', JSON.stringify(threats));
 localStorage.setItem('threats2', JSON.stringify(threats2));
 
-var storedNationalParks = localStorage.getItem('nationalParks');
-var parsedNationalParks = JSON.parse(storedNationalParks);
+function loadingPage() {
+  var storedNationalParks = localStorage.getItem('nationalParks');
+  var parsedNationalParks = JSON.parse(storedNationalParks);
 
-var storedHortonPlains = localStorage.getItem('hortonplains');
-var parsedHortonPlains = JSON.parse(storedHortonPlains);
+  var storedHortonPlains = localStorage.getItem('hortonplains');
+  var parsedHortonPlains = JSON.parse(storedHortonPlains);
 
-var storedWasgamuwaPark = localStorage.getItem('wasgamuwapark');
-var parsedWasgamuwaPark = JSON.parse(storedWasgamuwaPark);
+  var storedWasgamuwaPark = localStorage.getItem('wasgamuwapark');
+  var parsedWasgamuwaPark = JSON.parse(storedWasgamuwaPark);
 
+  var storedThreats = localStorage.getItem('threats');
+  var parsedThreats = JSON.parse(storedThreats);
 
-var storedThreats = localStorage.getItem('threats');
-var parsedThreats = JSON.parse(storedThreats);
-
-var storedThreats2 = localStorage.getItem('threats2');
-var parsedThreats2 = JSON.parse(storedThreats2);
-
-function populateContent() {
-
+  var storedThreats2 = localStorage.getItem('threats2');
+  var parsedThreats2 = JSON.parse(storedThreats2);
 
   document.getElementById('nationalParkDescription').textContent = parsedNationalParks[0].description;
   document.getElementById('threatDescription').textContent = parsedThreats[0].description;
@@ -77,10 +71,179 @@ function populateContent() {
   document.getElementById('threatmechanism').textContent = parsedThreats[0].mechanism;
   document.getElementById('threat2Description').textContent = parsedThreats2[0].description;
   document.getElementById('threat2mechanism').textContent = parsedThreats2[0].mechanism;
-  
-
-
 }
 
+const editBtn = document.getElementById('editBtn');
+const saveBtn = document.getElementById('saveBtn');
 
-populateContent();
+editBtn.addEventListener('click', () => {
+  saveBtn.style.display = 'flex';
+  editBtn.style.display = 'none';
+  editContent('nationalParkDescription');
+  editContent('hortonplainsDescription');
+  editContent('wasgamuwaparkDescription');
+  editContent('threatDescription');
+  editContent('threatmechanism');
+  editContent('threat2Description');
+  editContent('threat2mechanism');
+})
+
+saveBtn.addEventListener('click', () => {
+  saveBtn.style.display = 'none';
+  editBtn.style.display = 'flex';
+  revertContent('nationalParkDescription');
+  revertContent1('hortonplainsDescription');
+  revertContent2('wasgamuwaparkDescription');
+  revertContent3('threatDescription');
+  revertContent3('threatmechanism');
+  revertContent3('threat2Description');
+  revertContent3('threat2mechanism');
+})
+
+function editContent(elementId) {
+  var element = document.getElementById(elementId);
+
+  if (!element) {
+      console.error(`Element with id '${elementId}' not found.`);
+      return;
+  }
+
+  // Check if the element is <p> or <h1>
+  var tagName = element.tagName.toLowerCase();
+
+  if (tagName === 'p') {
+    var textarea = document.createElement('textarea');
+
+    // Copy attributes from <p> to <textarea>
+    for (var i = 0; i < element.attributes.length; i++) {
+        var attr = element.attributes[i];
+        textarea.setAttribute(attr.name, attr.value);
+    }
+
+    // Set content of <textarea> and replace <p> with <textarea>
+    textarea.value = element.textContent;
+    element.parentNode.replaceChild(textarea, element);
+
+  } else if (tagName === 'h1') {
+    var input = document.createElement('input');
+    input.type = 'text';
+    
+    // Copy attributes from <h1> to <input>
+    for (var i = 0; i < element.attributes.length; i++) {
+      var attr = element.attributes[i];
+      input.setAttribute(attr.name, attr.value);
+    }
+
+    // Set content of <input> and replace <h1> with <input>
+    input.value = element.textContent;
+    element.parentNode.replaceChild(input, element);
+
+  } else {
+      console.error(`Element with id '${elementId}' is neither a <p> nor an <h1> tag.`);
+  }
+}
+
+function revertContent(elementId) {
+  var element = document.getElementById(elementId);
+
+  if (!element) {
+      console.error(`Element with id '${elementId}' not found.`);
+      return;
+  }
+
+  var storedData = JSON.parse(localStorage.getItem('nationalParks')) || [];
+
+  storedData[0].description = element.value;
+  localStorage.setItem('nationalParks', JSON.stringify(storedData));
+
+  var p = document.createElement('p');
+
+  // Copy attributes from <textarea> to <p>
+  for (var i = 0; i < element.attributes.length; i++) {
+      var attr = element.attributes[i];
+      p.setAttribute(attr.name, attr.value);
+  }
+
+  // Set content of <p> and replace <textarea> with <p>
+  p.textContent = element.value;
+  element.parentNode.replaceChild(p, element);
+  loadingPage();
+}
+
+function revertContent1(elementId) {
+  var element = document.getElementById(elementId);
+
+  if (!element) {
+      console.error(`Element with id '${elementId}' not found.`);
+      return;
+  }
+
+  var storedData = JSON.parse(localStorage.getItem('hortonplains')) || [];
+
+  storedData[0].description = element.value;
+  localStorage.setItem('hortonplains', JSON.stringify(storedData));
+
+  var p = document.createElement('p');
+
+  // Copy attributes from <textarea> to <p>
+  for (var i = 0; i < element.attributes.length; i++) {
+      var attr = element.attributes[i];
+      p.setAttribute(attr.name, attr.value);
+  }
+
+  // Set content of <p> and replace <textarea> with <p>
+  p.textContent = element.value;
+  element.parentNode.replaceChild(p, element);
+  loadingPage();
+}
+
+function revertContent2(elementId) {
+  var element = document.getElementById(elementId);
+
+  if (!element) {
+      console.error(`Element with id '${elementId}' not found.`);
+      return;
+  }
+
+  var storedData = JSON.parse(localStorage.getItem('wasgamuwapark')) || [];
+
+  storedData[0].description = element.value;
+  localStorage.setItem('wasgamuwapark', JSON.stringify(storedData));
+
+  var p = document.createElement('p');
+
+  // Copy attributes from <textarea> to <p>
+  for (var i = 0; i < element.attributes.length; i++) {
+      var attr = element.attributes[i];
+      p.setAttribute(attr.name, attr.value);
+  }
+
+  // Set content of <p> and replace <textarea> with <p>
+  p.textContent = element.value;
+  element.parentNode.replaceChild(p, element);
+  loadingPage();
+}
+
+function revertContent3(elementId) {
+  var element = document.getElementById(elementId);
+
+  if (!element) {
+      console.error(`Element with id '${elementId}' not found.`);
+      return;
+  }
+
+  var p = document.createElement('p');
+
+  // Copy attributes from <textarea> to <p>
+  for (var i = 0; i < element.attributes.length; i++) {
+      var attr = element.attributes[i];
+      p.setAttribute(attr.name, attr.value);
+  }
+
+  // Set content of <p> and replace <textarea> with <p>
+  p.textContent = element.value;
+  element.parentNode.replaceChild(p, element);
+  loadingPage();
+}
+
+loadingPage();
